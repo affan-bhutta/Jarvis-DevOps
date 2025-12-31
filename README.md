@@ -25,37 +25,51 @@ The application accepts commands via CLI arguments, executes predefined actions,
 
 ---
 
-```markdown
 ## Project Structure
 ```text
 Jarvis-Devops/
 ├── .gitignore          # Git ignore rules
-├── .env.example        # Environment template
 ├── Dockerfile          # Container definition
 ├── requirements.txt    # Python dependencies
 ├── main.py             # Main application logic
 ├── client.py           # Supporting logic/modules
 └── README.md           # Project documentation
 
-## Getting Started for New Users
+Getting Started for New Users
 
-### Prerequisites
-- Docker installed
-- Git installed
-- API keys from:
-  - [OpenRouter](https://openrouter.ai/keys) (free tier available)
-  - [NewsAPI](https://newsapi.org/register) (free tier available)
+This section explains how a new user can set up and run the project locally using Docker.
 
-### Installation
-```bash
-# 1. Clone repository
+Prerequisites
+
+Make sure the following tools are installed on your system:
+
+Docker
+
+Git
+
+Optional (for AI and news features):
+
+API keys from:
+
+OpenRouter
+ (free tier available)
+
+NewsAPI
+ (free tier available)
+
+ # 1. Clone the repository
 git clone https://github.com/affan-bhutta/Jarvis-Devops.git
 cd Jarvis-Devops
 
-# 2. Configure API keys
+# 2. Configure environment variables
 cp .env.example .env
-# Edit .env with your actual API keys
+# Edit .env and add your API keys if required
 
-# 3. Build and run
+# 3. Build the Docker image
 docker build -t jarvis-devops .
-docker run -it jarvis-devops
+
+# 4. Run the application
+docker run jarvis-devops open google
+
+
+
