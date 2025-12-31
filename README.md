@@ -33,3 +33,26 @@ Jarvis-Devops/
 ├── main.py             # Main application logic
 ├── client.py           # Supporting logic/modules
 └── README.md           # Project documentation
+
+## Getting Started for New Users
+
+### Prerequisites
+- Docker installed
+- Git installed
+- API keys from:
+  - [OpenRouter](https://openrouter.ai/keys) (free tier available)
+  - [NewsAPI](https://newsapi.org/register) (free tier available)
+
+### Installation
+```bash
+# 1. Clone repository
+git clone https://github.com/affan-bhutta/Jarvis-Devops.git
+cd Jarvis-Devops
+
+# 2. Configure API keys
+cp .env.example .env
+# Edit .env with your actual API keys
+
+# 3. Build and run
+docker build -t jarvis-devops .
+docker run -it jarvis-devops
