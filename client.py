@@ -1,10 +1,14 @@
-# client.py
+# client.py - REPLACE THE ENTIRE FILE WITH:
+import os
 import requests
 import json
 
 def ask_ai_openrouter(question):
-    """Call OpenRouter API"""
-    AI_API_KEY = "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"
+    """Call OpenRouter API using environment variable"""
+    AI_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+    
+    if not AI_API_KEY:
+        return "API key not configured. Please set OPENROUTER_API_KEY environment variable."
     
     try:
         response = requests.post(
@@ -16,15 +20,15 @@ def ask_ai_openrouter(question):
             data=json.dumps({
                 "model": "meta-llama/llama-3.3-70b-instruct:free",
                 "messages": [
-					{
-						"role": "system", 
-						"content": "You are JARVIS, a helpful AI assistant. You speak clearly and concisely. Keep answers as short as possible."
-					},
-					{
-						"role": "user",
-						"content": question
-					}
-				]
+                    {
+                        "role": "system", 
+                        "content": "You are JARVIS, a helpful AI assistant. You speak clearly and concisely. Keep answers as short as possible."
+                    },
+                    {
+                        "role": "user",
+                        "content": question
+                    }
+                ]
             })
         )
         
@@ -32,12 +36,11 @@ def ask_ai_openrouter(question):
             data = response.json()
             return data['choices'][0]['message']['content']
         else:
-            return f"API Error {response.status_code}: {response.text}"
+            return f"API Error {response.status_code}"
             
     except Exception as e:
         return f"Connection error: {str(e)}"
 
-# Test the API
 if __name__ == "__main__":
     test_response = ask_ai_openrouter("Hello, who are you?")
     print("Test response:", test_response)

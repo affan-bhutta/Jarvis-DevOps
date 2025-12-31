@@ -9,7 +9,7 @@ from client import ask_ai_openrouter  # Import from the new file
 
 # ================== CONFIG ==================
 
-NEWS_API_KEY = "33726567a37042ba9ddb7f1b8ddc389b"
+NEWS_API_KEY = os.environ.get("NEWS_API_KEY", "")
 
 MUSIC_LIBRARY = {
     "believer": "https://www.youtube.com/watch?v=7wtfhZwyrcc",
