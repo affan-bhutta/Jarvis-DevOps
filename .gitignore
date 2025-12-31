@@ -1,0 +1,8 @@
+# Add these lines
+.env
+*.env
+secrets/
+config.local.json
+__pycache__/
+*.pyc
+notes.txt
