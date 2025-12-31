@@ -25,9 +25,12 @@ The application accepts commands via CLI arguments, executes predefined actions,
 
 ---
 
+```markdown
 ## Project Structure
 ```text
 Jarvis-Devops/
+├── .gitignore          # Git ignore rules
+├── .env.example        # Environment template
 ├── Dockerfile          # Container definition
 ├── requirements.txt    # Python dependencies
 ├── main.py             # Main application logic
